@@ -2,7 +2,7 @@
 
 
 int count();
-void ReadData();
+int ReadData();
 const int NPoints=100;
 const int error=-1;
 int main()
@@ -10,15 +10,16 @@ int main()
 	printf ("#Laba 1.1.1 \n"
                 "#(c) Yuri Tolstov\n\n");
 	double I[NPoints]={}, U[NPoints]={};
-	int Meas=ReadData(I,U);
+	char data_file_name[]={data1.1.1.txt};
+	int Meas=ReadData(I,U,data_file_name);
+	printf("%f\t%f",I[1],U[1]);
 	if (nMeas<=0){printf("Bad ReadData function\n");return 1;}
-	int result=count();
+	//int result=count();
 	return(result==0)? printf("result saved \n"): printf("Error count function\n");	
 }
 /*_______________________________________________________________________________________________________________________________*/
 int count()	/*function count*/
 {
-	ReadData();
 	double u=0, i=0, ro=0;				/*Input variables*/
 	int counter=0;		
 	const int length1=20, length2=30, length3=50;	/*Input const*/
@@ -70,14 +71,14 @@ int count()	/*function count*/
 }
 /*_______________________________________________________________________________________________________________________________*/
 
-int ReadData(double I[],double U[])
+int ReadData(double I[],double U[],char data_file_name[])
 	{
-	FILE* data = fopen("data.txt", "r");			/*Reading data from data.txt*/
+	FILE* data = fopen(data_file_name, "r");			/*Reading data from data.txt*/
 	FILE* result = fopen("result.txt", "w");		/*Whriting results to result.txt*/
 	if (!data) {printf("Cannot open data.txt");return error;}
 	
 	int line=0;
-	while (true)
+	while ("true")
 		{
 		if (fscanf(result,"%lg\t %lg",&I[line],&U[line])==EOF) break;
 							

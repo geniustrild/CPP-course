@@ -1,39 +1,40 @@
 #include <stdio.h>
+#include <string.h>
+#include <math.h>
 
 int const max_lenth=1024;
-int const max_lines=2048;
+const int error=-1;
 
+int ReadText();
+int SortText();
+int PrintText();
 
 int main()
 {
-char poem[max_lines][max_lenth]={""};
-PrintText(char poem[max_lines][max_lenth]);
+  printf ("#Onegin sorting \n"
+          "#(c) Yuri Tolstov\n\n");
+  ReadText();
+  SortText();
+  PrintText();
 }
 
-/*char read_poem()
-{
+  /*_______________________________________________________________________________________________________________________________*/
 
+  int ReadText()
+  	{
+  	FILE* text_old = fopen("onegin.txt", "r");			/*Reading data from onegin.txt*/
+  	if (!text_old) {printf("@laba:Cannot open onegin.txt");return error;}
 
-}*/
+  	int line=0;
+  	for (;;)
+  		{
+  			line++;
+      }
+  			fclose(text_old);
+  	return line;
+  	}
 
-void PrintText (char poem[max_lines][max_lenth]) //можно не писать max_lines
-   {
-     FILE* text = fopen(text,"text.txt", "r");
-     for (int i=0;i< ;i++)
-     {
-       fgets(&poem[i],max_lenth-1,file); //или fgets(poem+i,max_lenth-1)
-           printf("%s\n", poem[i]);
-     }
-
-
-     for (int i=0;i < ; i++)
-     {
-      puts(poem[i]);
-
-      //for (int j=0;poem[i][j];j++)
-      //  putchar(poem[i][j]);
-     }
-  }
+  /*_______________________________________________________________________________________________________________________________*/
 
 int sort_v1()
 {

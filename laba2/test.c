@@ -1,45 +1,147 @@
-_____________________________________________________________________________________________________________________
-	Length of wire: 20 cm
-_____________________________________________________________________________________________________________________
-1.	 I=32.77	A 	  U=  68	V 	 R=0.4819(+-)	0.002345	Om	 r=0.02554*10^-4	Om*cm
-2.	 I=94.6	A 	  U= 196	V 	 R=0.4827(+-)	0.002345	Om	 r=0.02558*10^-4	Om*cm
-3.	 I=119.1	A 	  U= 244	V 	 R=0.4883(+-)	0.002345	Om	 r=0.02588*10^-4	Om*cm
-4.	 I=144.1	A 	  U= 296	V 	 R=0.4869(+-)	0.002345	Om	 r=0.02581*10^-4	Om*cm
-5.	 I=160.3	A 	  U= 328	V 	 R=0.4888(+-)	0.002345	Om	 r=0.02591*10^-4	Om*cm
-6.	 I=181.9	A 	  U= 376	V 	 R=0.4837(+-)	0.002345	Om	 r=0.02564*10^-4	Om*cm
-7.	 I=263.1	A 	  U= 544	V 	 R=0.4837(+-)	0.002345	Om	 r=0.02563*10^-4	Om*cm
-8.	 I=218.7	A 	  U= 452	V 	 R=0.4837(+-)	0.002345	Om	 r=0.02564*10^-4	Om*cm
-9.	 I=194.7	A 	  U= 400	V 	 R=0.4866(+-)	0.002345	Om	 r=0.02579*10^-4	Om*cm
-10.	 I=169.3	A 	  U= 348	V 	 R=0.4865(+-)	0.002345	Om	 r=0.02578*10^-4	Om*cm
-11.	 I= 136	A 	  U= 280	V 	 R=0.4857(+-)	0.002345	Om	 r=0.02574*10^-4	Om*cm
-12.	 I=96.89	A 	  U= 200	V 	 R=0.4844(+-)	0.002345	Om	 r=0.02568*10^-4	Om*cm
-_____________________________________________________________________________________________________________________
-	Length of wire: 30 cm
-_____________________________________________________________________________________________________________________
-13.	 I=25.51	A 	  U=  80	V 	 R=0.3189(+-)	0.004758	Om	 r=0.01127*10^-4	Om*cm
-14.	 I=58.71	A 	  U= 180	V 	 R=0.3262(+-)	0.004758	Om	 r=0.01152*10^-4	Om*cm
-15.	 I=86.5	A 	  	U= 268	V 	 R=0.3228(+-)	0.004758	Om	 r=0.0114* 10^-4	Om*cm
-16.	 I=104.7	A 	  U= 324	V 	 R=0.3231(+-)	0.004758	Om	 r=0.01141*10^-4	Om*cm
-17.	 I=119.7	A 	  U= 368	V 	 R=0.3253(+-)	0.004758	Om	 r=0.01149*10^-4	Om*cm
-18.	 I=126.6	A 	  U= 392	V 	 R=0.323(+-)	0.004758	Om	 r=0.01141*10^-4	Om*cm
-19.	 I=113.3	A 	  U= 352	V 	 R=0.3219(+-)	0.004758	Om	 r=0.01137*10^-4	Om*cm
-20.	 I=101.6	A 	  U= 316	V 	 R=0.3214(+-)	0.004758	Om	 r=0.01136*10^-4	Om*cm
-21.	 I=88.25	A 	  U= 272	V 	 R=0.3244(+-)	0.004758	Om	 r=0.01146*10^-4	Om*cm
-22.	 I=69.56	A 	  U= 216	V 	 R=0.322(+-)	0.004758	Om	 r=0.01138*10^-4	Om*cm
-23.	 I=51.83	A 	  U= 160	V 	 R=0.3239(+-)	0.004758	Om	 r=0.01145*10^-4	Om*cm
-24.	 I=32.19	A 	  U= 100	V 	 R=0.3219(+-)	0.004758	Om	 r=0.01137*10^-4	Om*cm
-_____________________________________________________________________________________________________________________
-	Length of wire: 50 cm
-_____________________________________________________________________________________________________________________
-25.	 I=9.68	A 	  	U=  48	V 	 R=0.2017(+-)	0.005307	Om	 r=0.004275*10^-4	Om*cm
-26.	 I=21.13	A 	  U= 108	V 	 R=0.1956(+-)	0.005307	Om	 r=0.004148*10^-4	Om*cm
-27.	 I=37.67	A 	  U= 196	V 	 R=0.1922(+-)	0.005307	Om	 r=0.004075*10^-4	Om*cm
-28.	 I=70.42	A 	  U= 364	V 	 R=0.1935(+-)	0.005307	Om	 r=0.004101*10^-4	Om*cm
-29.	 I=90.87	A 	  U= 472	V 	 R=0.1925(+-)	0.005307	Om	 r=0.004081*10^-4	Om*cm
-30.	 I=110.1	A 	  U= 572	V 	 R=0.1925(+-)	0.005307	Om	 r=0.004081*10^-4	Om*cm
-31.	 I=113.1	A 	  U= 588	V 	 R=0.1924(+-)	0.005307	Om	 r=0.004079*10^-4	Om*cm
-32.	 I=  94	A 	  	U= 488	V 	 R=0.1926(+-)	0.005307	Om	 r=0.004084*10^-4	Om*cm
-33.	 I=82.69	A 	  U= 428	V 	 R=0.1932(+-)	0.005307	Om	 r=0.004096*10^-4	Om*cm
-34.	 I=65.3	A 	  	U= 340	V 	 R=0.1921(+-)	0.005307	Om	 r=0.004072*10^-4	Om*cm
-35.	 I=51.57	A 	  U= 268	V 	 R=0.1924(+-)	0.005307	Om	 r=0.004079*10^-4	Om*cm
-36.	 I=  27	A 	  	U= 140	V 	 R=0.1929(+-)	0.005307	Om	 r=0.004089*10^-4	Om*cm
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+#define DATA_FILE_NAME "data1.txt"
+#define RESULT_FILE_NAME "result.txt"
+const int NPoints=100;
+const int error=-1;
+const int length1=20;
+const int length2=30;
+const int length3=50;
+const int maxI=1000;
+const int maxU=1000;
+const float square=1.06;
+const double delta_U=0.6;
+const double delta_I=0.05;
+
+int ReadData(); 	 //reading data from file
+int CalculateData();		//calculating values
+double CalculateError();		//calculating error
+int WriteData();		//writing data in file
+void myfunctions_free();
+int Check_massiv();
+
+int main()
+{
+	printf ("#Laba 1.1.1 \n"
+          "#(c) Yuri Tolstov\n\n");
+double* I=(double*) calloc(NPoints,sizeof(double)); I=0; I[NPoints-1]=666;//ставлю в последний элемент массива число 666,
+double* U=(double*) calloc(NPoints,sizeof(double)); U=0; U[NPoints-1]=666;//чтобы можно было проверить, не вышел ли массив
+double *R=(double*) calloc(NPoints,sizeof(double)); R=0; R[NPoints-1]=666;//за свои пределы, т.е не изменилось ли число 666
+double *r=(double*) calloc(NPoints,sizeof(double)); r=0; r[NPoints-1]=666;
+double sigma[3]={0,0,0};
+
+	int line=ReadData(U,I);
+	if (line<=0){printf("@laba:%s\n", "\x1b[31mRead data function error\x1B[0;0;0m");return error;} else printf("@laba:Data read...\n");
+	if (0==CalculateData(I,U,R,r,line)) printf("@laba:Data calculated...\n"); else {printf("%s\n", "\x1b[31m@laba:Calculating data function error!\x1B[0;0;0m");return error;}
+	if (0==CalculateError(I,U,R,r,line,sigma,length1)) printf("@laba:Data errors calculated...\n"); else {printf("%s\n", "\x1b[31mCalculating errors function error!\x1B[0;0;0m");return error;}
+	if (0==CalculateError(I,U,R,r,line,sigma,length2)) printf("@laba:Data errors calculated...\n"); else {printf("%s\n", "\x1b[31mCalculating errors function error!\x1B[0;0;0m");return error;}
+	if (0==CalculateError(I,U,R,r,line,sigma,length3)) printf("@laba:Data errors calculated...\n"); else {printf("%s\n", "\x1b[31mCalculating errors function error!\x1B[0;0;0m");return error;}
+	(0==WriteData(I,U,R,r,line,sigma))? printf("@laba:Results wrote...\n@laba:%s\n", "\x1b[32mLaba 1.1.1 successfully calculated!\x1B[0;0;0m") :printf("@laba:%s\n", "\x1b[31mLaba 1.1.1 calculating error!\x1B[0;0;0m");
+	myfunctions_free(I,U,R,r);
+}
+/*_______________________________________________________________________________________________________________________________*/
+
+int ReadData(double I[],double U[])
+	{
+	FILE* data = fopen(DATA_FILE_NAME, "r");			/*Reading data from data.txt*/
+	if (!data) {printf("@laba:Cannot open data1.txt");return error;}
+
+	int line=0;
+	for (;;)
+		{
+			line++;
+			if (fscanf(data,"%lg %lg",&U[line],&I[line])==EOF) break;
+			if (U[line]<=0 || U[line]>maxU) {printf("Error U=%lg in line %d\n", I[line], line); return error;}
+			if (I[line]<=0 || I[line]>maxI) {printf("Error I=%lg in line %d\n", U[line], line); return error;}
+		}
+	Check_massiv(I);
+	Check_massiv(U);
+	fclose(data);
+	return line;
+	}
+
+/*_______________________________________________________________________________________________________________________________*/
+
+int CalculateData(double I[],double U[],double R[],double r[],int line)
+	{
+		int number=0, length=0;
+		for (number=1;number<line;number++)
+			{
+				if (number<=line/3) length=length1;
+				if (number>line/3 && number<=24) length=length2;
+				if (number>line*2/3 && number<=line) length=length3;
+				R[number]=U[number]/I[number];
+				r[number]=U[number]*square / (I[number]*length);
+			}
+			Check_massiv(R);
+			Check_massiv(r);
+			return 0;
+	}
+	/*_______________________________________________________________________________________________________________________________*/
+
+	double CalculateError(double I[],double U[],double R[],double r[],int line, double sigma[],int length)
+		{
+			int number=0;
+			int gap=0;
+			int sigmanum=0;
+			double Umax=0;	double Imax=0;
+			double sum_U=0;	double sum_I=0;
+			double sum_UI=0;double sum_Isq=0;
+			double sum_Usq=0;
+			if (length==20) {number=1;gap=12;sigmanum=0;}
+			if (length==30) {number=13;gap=24;sigmanum=1;}
+			if (length==50)	{number=25;gap=36;sigmanum=2;}
+			for (number;number<gap;number++)
+				{
+							if (U[number]>=Umax) Umax=U[number];
+							if (I[number]>=Imax) Imax=I[number];
+							sum_Usq = sum_Usq + U[number]*U[number];
+							sum_Isq = sum_Isq + I[number]*I[number];
+							sum_UI = sum_UI + U[number]*I[number];
+				}
+										//sq=square a*a
+			double average_Isq = sum_Isq / (12);	double average_Usq = sum_Usq / (12);
+			double average_UI = sum_UI / (12);		double average_R = average_UI / average_Isq;
+			double sigma_rand = sqrt(average_Usq /average_Isq - average_R*average_R)/sqrt(12);
+			double sigma_system = sqrt((delta_U/Umax)*(delta_U/Umax)+(delta_I/Imax)*(delta_I/Imax));
+			sigma[sigmanum]=sqrt((sigma_rand*sigma_rand) + (sigma_system*sigma_system));
+
+			return 0;
+		}
+
+	/*_______________________________________________________________________________________________________________________________*/
+
+
+int WriteData(double I[],double U[],double R[],double r[],int line, double sigma[])
+	{
+		FILE* result = fopen(RESULT_FILE_NAME, "w"); 			/*Whriting results to result.txt*/
+		int Nsigma=0;
+		for (int number=1;number<line;number++)
+			{
+				if (number==line) break;
+				if (number==1) {fprintf(result,"_____________________________________________________________________________________________________________________\n\tLength of wire: %d cm\n_____________________________________________________________________________________________________________________\n",length1); Nsigma=0;}
+				if (number==13) {fprintf(result,"_____________________________________________________________________________________________________________________\n\tLength of wire: %d cm\n_____________________________________________________________________________________________________________________\n",length2); Nsigma=1;}
+				if (number==25) {fprintf(result,"_____________________________________________________________________________________________________________________\n\tLength of wire: %d cm\n_____________________________________________________________________________________________________________________\n",length3); Nsigma=2;}
+				fprintf(result,"%d.\t I=%4.4lg\tA \t  U=%4.4lg\tV \t R=%4.4lg(+-)\t%4.4lg\tOm\t r=%4.4lg*10^-4\tOm*cm\n",number,U[number],I[number],R[number],sigma[Nsigma],r[number]);
+			}
+	return	0;
+
+}
+
+/*_______________________________________________________________________________________________________________________________*/
+void myfunctions_free(double I[],double U[],double R[],double r[])
+{
+	free(I); I=NULL;
+	free(U); U=NULL;
+	free(R); R=NULL;
+	free(r); r=NULL;
+}
+/*_______________________________________________________________________________________________________________________________*/
+int Check_massiv(double arr[])
+	{
+		if (arrr[NPoints-1]==666) return 0;
+		else return error;
+	}

@@ -4,6 +4,7 @@
 #include <stdlib.h>
 
 #define DATA_FILE_NAME "data1.txt"
+#define RESULT_FILE_NAME "result.txt"
 const int NPoints=100;
 const int error=-1;
 const int length1=20;
@@ -20,26 +21,27 @@ int CalculateData();		//calculating values
 double CalculateError();		//calculating error
 int WriteData();		//writing data in file
 void myfunctions_free();
+int Check_array();
 
 int main()
 {
 	printf ("#Laba 1.1.1 \n"
           "#(c) Yuri Tolstov\n\n");
-	double sigma[3]={0,0,0};
-
-double* I=(double*) calloc(NPoints,sizeof(double));
-double* U=(double*) calloc(NPoints,sizeof(double));
-double *R=(double*) calloc(NPoints,sizeof(double));
-double *r=(double*) calloc(NPoints,sizeof(double));
+double* I=(double*) calloc(NPoints,sizeof(double)); I[0]=666; I[NPoints-1]=666;//ставлю в первый и последний элементы массива число 666,
+double* U=(double*) calloc(NPoints,sizeof(double)); U[0]=666; U[NPoints-1]=666;//чтобы можно было проверить, не вышел ли массив
+double *R=(double*) calloc(NPoints,sizeof(double)); R[0]=666; R[NPoints-1]=666;//за свои пределы, т.е не изменилось ли число 666
+double *r=(double*) calloc(NPoints,sizeof(double)); r[0]=666; r[NPoints-1]=666;
+double sigma[3]={0,0,0};
 
 	int line=ReadData(U,I);
+	printf("%d\n",line );// return 0;
 	if (line<=0){printf("@laba:%s\n", "\x1b[31mRead data function error\x1B[0;0;0m");return error;} else printf("@laba:Data read...\n");
 	if (0==CalculateData(I,U,R,r,line)) printf("@laba:Data calculated...\n"); else {printf("%s\n", "\x1b[31m@laba:Calculating data function error!\x1B[0;0;0m");return error;}
-	if (0==CalculateError(I,U,R,r,line,sigma,length1)) printf("@laba:Data errors calculated...\n"); else {printf("%s\n", "\x1b[31mCalculating errors function error!\x1B[0;0;0m");return error;}
-	if (0==CalculateError(I,U,R,r,line,sigma,length2)) printf("@laba:Data errors calculated...\n"); else {printf("%s\n", "\x1b[31mCalculating errors function error!\x1B[0;0;0m");return error;}
-	if (0==CalculateError(I,U,R,r,line,sigma,length3)) printf("@laba:Data errors calculated...\n"); else {printf("%s\n", "\x1b[31mCalculating errors function error!\x1B[0;0;0m");return error;}
+	if (0==CalculateError(I,U,R,r,line,sigma,length1)) printf("@laba:Data error for length1 calculated...\n"); else {printf("%s\n", "\x1b[31mCalculating errors function error!\x1B[0;0;0m");return error;}
+	if (0==CalculateError(I,U,R,r,line,sigma,length2)) printf("@laba:Data error for length2 calculated...\n"); else {printf("%s\n", "\x1b[31mCalculating errors function error!\x1B[0;0;0m");return error;}
+	if (0==CalculateError(I,U,R,r,line,sigma,length3)) printf("@laba:Data error for length3 calculated...\n"); else {printf("%s\n", "\x1b[31mCalculating errors function error!\x1B[0;0;0m");return error;}
 	(0==WriteData(I,U,R,r,line,sigma))? printf("@laba:Results wrote...\n@laba:%s\n", "\x1b[32mLaba 1.1.1 successfully calculated!\x1B[0;0;0m") :printf("@laba:%s\n", "\x1b[31mLaba 1.1.1 calculating error!\x1B[0;0;0m");
-	myfunctions_free(I,U,R,r);
+		myfunctions_free(I,U,R,r);
 }
 /*_______________________________________________________________________________________________________________________________*/
 
@@ -56,7 +58,8 @@ int ReadData(double I[],double U[])
 			if (U[line]<=0 || U[line]>maxU) {printf("Error U=%lg in line %d\n", I[line], line); return error;}
 			if (I[line]<=0 || I[line]>maxI) {printf("Error I=%lg in line %d\n", U[line], line); return error;}
 		}
-
+	if (Check_array(I)!=0){printf("I array is damaged\n");return error;}
+	if (Check_array(U)!=0){printf("U array is damaged\n");return error;}
 	fclose(data);
 	return line;
 	}
@@ -74,6 +77,9 @@ int CalculateData(double I[],double U[],double R[],double r[],int line)
 				R[number]=U[number]/I[number];
 				r[number]=U[number]*square / (I[number]*length);
 			}
+		if (Check_array(R)!=0){printf("R array is damaged\n");return error;}
+		if (Check_array(r)!=0){printf("r array is damaged\n");return error;}
+
 			return 0;
 	}
 	/*_______________________________________________________________________________________________________________________________*/
@@ -113,7 +119,7 @@ int CalculateData(double I[],double U[],double R[],double r[],int line)
 
 int WriteData(double I[],double U[],double R[],double r[],int line, double sigma[])
 	{
-		FILE* result = fopen("result.txt", "w"); 			/*Whriting results to result.txt*/
+		FILE* result = fopen(RESULT_FILE_NAME, "w"); 			/*Whriting results to result.txt*/
 		int Nsigma=0;
 		for (int number=1;number<line;number++)
 			{
@@ -125,13 +131,19 @@ int WriteData(double I[],double U[],double R[],double r[],int line, double sigma
 			}
 	return	0;
 
-}
+	}
 
 /*_______________________________________________________________________________________________________________________________*/
 void myfunctions_free(double I[],double U[],double R[],double r[])
-{
-	free(I); I=NULL;
-	free(U); U=NULL;
-	free(R); R=NULL;
-	free(r); r=NULL;
-}
+	{
+		free(I); I=NULL;
+		free(U); U=NULL;
+		free(R); R=NULL;
+		free(r); r=NULL;
+	}
+/*_______________________________________________________________________________________________________________________________*/
+int Check_array(double arr[])
+	{
+		if ( arr[0]==666 && arr[NPoints-1]==666) return 0;
+		else return error;
+	}

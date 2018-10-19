@@ -15,34 +15,36 @@ const int maxU=1000;
 const float square=1.06;
 const double delta_U=0.6;
 const double delta_I=0.05;
-
+int CheckSum=666;
+//Функции
 int ReadData(); 	 //reading data from file
 int CalculateData();		//calculating values
 double CalculateError();		//calculating error
 int WriteData();		//writing data in file
-void myfunctions_free();
+void myfunction_free();
 int Check_array();
-
+/*____________________________________________________________________________*/
 int main()
 {
 	printf ("#Laba 1.1.1 \n"
           "#(c) Yuri Tolstov\n\n");
-double* I=(double*) calloc(NPoints,sizeof(double)); I[0]=666; I[NPoints-1]=666;//ставлю в первый и последний элементы массива число 666,
-double* U=(double*) calloc(NPoints,sizeof(double)); U[0]=666; U[NPoints-1]=666;//чтобы можно было проверить, не вышел ли массив
-double *R=(double*) calloc(NPoints,sizeof(double)); R[0]=666; R[NPoints-1]=666;//за свои пределы, т.е не изменилось ли число 666
-double *r=(double*) calloc(NPoints,sizeof(double)); r[0]=666; r[NPoints-1]=666;
+double* I=NULL; double* U=NULL;
+double* R=NULL; double* r=NULL;
+if (!(I=(double*) calloc(NPoints,sizeof(double)))) {printf("Unable to create array I\n"); return error;} I[0]=CheckSum; I[NPoints]=CheckSum;//ставлю в первый и последний элементы массива число 666,
+if (!(U=(double*) calloc(NPoints,sizeof(double)))) {printf("Unable to create array U\n"); return error;} U[0]=CheckSum; U[NPoints]=CheckSum;//чтобы можно было проверить, не вышел ли массив
+if (!(R=(double*) calloc(NPoints,sizeof(double)))) {printf("Unable to create array R\n"); return error;} R[0]=CheckSum; R[NPoints]=CheckSum;//за свои пределы, т.е не изменилось ли число 666
+if (!(r=(double*) calloc(NPoints,sizeof(double)))) {printf("Unable to create array r\n"); return error;} r[0]=CheckSum; r[NPoints]=CheckSum;
 double sigma[3]={0,0,0};
 
 	int line=ReadData(U,I);
-	printf("%d\n",line );// return 0;
 	if (line<=0){printf("@laba:%s\n", "\x1b[31mRead data function error\x1B[0;0;0m");return error;} else printf("@laba:Data read...\n");
 	if (0==CalculateData(I,U,R,r,line)) printf("@laba:Data calculated...\n"); else {printf("%s\n", "\x1b[31m@laba:Calculating data function error!\x1B[0;0;0m");return error;}
 	if (0==CalculateError(I,U,R,r,line,sigma,length1)) printf("@laba:Data error for length1 calculated...\n"); else {printf("%s\n", "\x1b[31mCalculating errors function error!\x1B[0;0;0m");return error;}
 	if (0==CalculateError(I,U,R,r,line,sigma,length2)) printf("@laba:Data error for length2 calculated...\n"); else {printf("%s\n", "\x1b[31mCalculating errors function error!\x1B[0;0;0m");return error;}
 	if (0==CalculateError(I,U,R,r,line,sigma,length3)) printf("@laba:Data error for length3 calculated...\n"); else {printf("%s\n", "\x1b[31mCalculating errors function error!\x1B[0;0;0m");return error;}
 	(0==WriteData(I,U,R,r,line,sigma))? printf("@laba:Results wrote...\n@laba:%s\n", "\x1b[32mLaba 1.1.1 successfully calculated!\x1B[0;0;0m") :printf("@laba:%s\n", "\x1b[31mLaba 1.1.1 calculating error!\x1B[0;0;0m");
-		myfunctions_free(I,U,R,r);
-}
+	myfunction_free(&I,&U,&R,&r);
+	}
 /*_______________________________________________________________________________________________________________________________*/
 
 int ReadData(double I[],double U[])
@@ -134,16 +136,16 @@ int WriteData(double I[],double U[],double R[],double r[],int line, double sigma
 	}
 
 /*_______________________________________________________________________________________________________________________________*/
-void myfunctions_free(double I[],double U[],double R[],double r[])
+void myfunction_free(void **I,void **U,void **R,void **r)
 	{
-		free(I); I=NULL;
-		free(U); U=NULL;
-		free(R); R=NULL;
-		free(r); r=NULL;
+		free(*I); *I=NULL;
+		free(*U); *U=NULL;
+		free(*R); *R=NULL;
+		free(*r); *r=NULL;
 	}
 /*_______________________________________________________________________________________________________________________________*/
 int Check_array(double arr[])
 	{
-		if ( arr[0]==666 && arr[NPoints-1]==666) return 0;
+		if ( arr[0]==CheckSum && arr[NPoints]==CheckSum) return 0;
 		else return error;
 	}

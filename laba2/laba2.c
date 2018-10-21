@@ -19,13 +19,13 @@ const double Tolerance = 3e-8;
 const char cherta[]="_____________________________________________________________________________________________________________________\n";
 int CheckSum=666;
 //Функции
-int ReadData(); 	 //reading data from file
-int CalculateData();		//calculating values
-int CalculateError();		//calculating error
-int WriteData();		//writing data in file
-void myfunction_free();
-int Check_array();
-int CheckTolerance();
+int ReadData(double I[],double U[], char DataFileName[]); 	 //reading data from file
+int CalculateData(double I[],double U[],double R[],double r[],int line);		//calculating values
+int CalculateError(double I[],double U[],double R[],double r[],int line, double sigma[],int length);		//calculating error
+int WriteData(double I[],double U[],double R[],double r[],int line, double sigma[],char ResultFileName[]);		//writing data in file
+void myfunction_free(void **I,void **U,void **R,void **r);
+int Check_array(double arr[]);
+int CheckTolerance(double value);
 /*____________________________________________________________________________*/
 int main()
 {

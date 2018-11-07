@@ -18,13 +18,15 @@
  void MyFree (char **buf, char ***text);
  
 //-------------------------------------------------------------------------------------------------------------------------------------
-int main ()
+  int
+main ()
 {
    char DataFileName[] = "onegin.txt";
    char ResultFileName[] = "sorted.txt";
    char *buf = NULL;
    int Lnumber = 0, NLines = 0;
    if ((Lnumber = ReadText (&buf, DataFileName)) == ERROR)
+
     {
        printf ("\x1b[31m@SortMashine: Reading error\x1B[0;0;0m\n");
        return ERROR;
@@ -33,32 +35,38 @@ int main ()
   language = CheckLanguage (buf);
   if (language == ERROR)
     {
-      printf("\x1b[31m@SortMashine: Can't understand language\x1B[0;0;0m\n");
+      printf
+        ("\x1b[31m@SortMashine: Can't understand language\x1B[0;0;0m\n");
       return ERROR;
     }
-  	printf ("@SortMashine: CheckLanguage function completed...\n");
+  printf ("@SortMashine: CheckLanguage function completed...\n");
    NLines = CountAndChange (buf, Lnumber);
-   	printf ("@SortMashine: CountAndChange function completed...\n");
+   printf ("@SortMashine: CountAndChange function completed...\n");
    char **text = calloc (NLines, sizeof (char *));
    if (text == NULL)
+
     {
-       printf("\x1b[31m@SortMashine: Can't create array text\x1B[0;0;0m\n");
+       printf
+        ("\x1b[31m@SortMashine: Can't create array text\x1B[0;0;0m\n");
        return ERROR;
     }
    FillText (text, buf, Lnumber, NLines);
-   	printf ("@SortMashine: FillText function completed...\n");
+   printf ("@SortMashine: FillText function completed...\n");
    qsort (text, NLines, sizeof (char *), CompareStrings);
-   	printf ("@SortMashine: Sorting function completed...\n");
+   printf ("@SortMashine: Sorting function completed...\n");
    PrintText (text, ResultFileName, NLines);
-   	printf ("@SortMashine: PrintText function completed...\n");
-   	printf("\x1b[32m@SortMashine: Text sorting completed! %d lines sorted!\n",NLines);
+   printf ("@SortMashine: PrintText function completed...\n");
+   printf
+    ("\x1b[32m@SortMashine: Text sorting completed! %d lines sorted!\n",
+     NLines);
    MyFree (&buf, &text);
    return 0;
  }
 
   
 //_______________________________________________________________________
-int CalculateSize (FILE * read)
+  int
+CalculateSize (FILE * read)
 {
    fseek (read, 0, SEEK_END);
    int size = ftell (read);
@@ -68,7 +76,8 @@ int CalculateSize (FILE * read)
 
   
 //_______________________________________________________________________
-int ReadText (char **buf_ptr, char DataFileName[])
+  int
+ReadText (char **buf_ptr, char DataFileName[])
 {
    FILE * read = fopen (DataFileName, "r");
    if (!read)
@@ -97,48 +106,51 @@ int CalculateSize (FILE * read)
 
   
 //_______________________________________________________________________
-int CountAndChange (char *buf, int Lnumber)
+  int
+CountAndChange (char *buf, int Lnumber)
 {
    int NLines = 0;
    for (int i = 0; i <= Lnumber; ++i)
     {
        if (buf[i] == '\n')
-	{
-	   ++NLines;
-	   buf[i] = '\0';
-	   while (buf[i + 1] <= Lnumber && buf[i + 1] == '\n')
-	     ++i;
-	 }
+        {
+           ++NLines;
+           buf[i] = '\0';
+           while (buf[i + 1] <= Lnumber && buf[i + 1] == '\n')
+             ++i;
+         }
      }
    return NLines;
  }
 
   
 //_______________________________________________________________________
-void FillText (char **text, char *buf, int Lnumber, int NLines)
+  void
+FillText (char **text, char *buf, int Lnumber, int NLines)
 {
    text[0] = &buf[0];
    int count = 1;
    for (int i = 0; i < Lnumber; ++i)
     {
        if (buf[i] == '\0')
-	{
-	   while (buf[i + 1] <= Lnumber && buf[i + 1] == '\n')
-	     ++i;
-	   text[count] = &buf[i + 1];
-	   ++count;
-	   if (count == NLines)
-	    break;
-	 }
+        {
+           while (buf[i + 1] <= Lnumber && buf[i + 1] == '\n')
+             ++i;
+           text[count] = &buf[i + 1];
+           ++count;
+           if (count == NLines)
+            break;
+         }
      }
  }
 
   
 //_______________________________________________________________________
-int CustomEncoding (char c, int language)
+  int
+CustomEncoding (char c, int language)
 {
    char ru_alph[] =
-    { "ÀÁÂÃÄÅ¨ÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜÝÞßàáâãäå¸æçèéêëìíîïðñòóôõö÷øùúûüýþÿ"
+    { "ï¿½ï¿½ï¿½ï¿½ï¿½Å¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
   };
    char en_alph[] =
     { "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz" };
@@ -146,33 +158,37 @@ int CustomEncoding (char c, int language)
     
     {
        for (int i = 0; i <= RU_ALPH_SIZE; ++i)
-	 if (c == ru_alph[i])
-	   return i + 1;
+         if (c == ru_alph[i])
+           return i + 1;
      }
    if (language == EN_ALPH_SIZE)
     
     {
        for (int i = 0; i <= EN_ALPH_SIZE; ++i)
-	 if (c == en_alph[i])
-	   return i + 1;
+         if (c == en_alph[i])
+           return i + 1;
      }
     return 0;
  }
 
   
 //_______________________________________________________________________
-int CompareStrings (const void *ptr1, const void *ptr2)
+  int
+CompareStrings (const void *ptr1, const void *ptr2)
 {
    char *str1 = *((char **) ptr1);
    char *str2 = *((char **) ptr2);
    while ((*str1) != '\0' && (*str2) != '\0')
+
     {
-     	while (CustomEncoding (*str1, language) == 0)
-					*str1++;
+      while (CustomEncoding (*str1, language) == 0)
+        *str1++;
       while (CustomEncoding (*str2, language) == 0)
-					*str2++;
-       if (CustomEncoding (*str1, language) != CustomEncoding (*str2, language))
-	 			return CustomEncoding (*str1, language) - CustomEncoding (*str2, language);
+        *str2++;
+       if (CustomEncoding (*str1, language) !=
+             CustomEncoding (*str2, language))
+         return CustomEncoding (*str1, language) - CustomEncoding (*str2,
+                                                                     language);
        *str1++;
        *str2++;
      }
@@ -181,7 +197,8 @@ int CustomEncoding (char c, int language)
 
   
 //_______________________________________________________________________
-int PrintText (char **text, char ResultFileName[], int NLines)
+  int
+PrintText (char **text, char ResultFileName[], int NLines)
 {
    FILE * write = fopen (ResultFileName, "w");
    if (!write)
@@ -198,7 +215,8 @@ int PrintText (char **text, char ResultFileName[], int NLines)
 
   
 //_______________________________________________________________________
-void MyFree (char **buf, char ***text)
+  void
+MyFree (char **buf, char ***text)
 {
    free (*buf);
    *buf = NULL;
@@ -207,7 +225,8 @@ void MyFree (char **buf, char ***text)
  }  
 
 //_______________________________________________________________________
-int CheckLanguage (char *buf)
+  int
+CheckLanguage (char *buf)
 {
    srand (time (NULL));
    int ENcounter = 0;
@@ -216,10 +235,10 @@ int CheckLanguage (char *buf)
     
     {
        if (CustomEncoding (buf[rand () % RU_ALPH_SIZE], RU_ALPH_SIZE) != 0)
-	 RUcounter++;
+         RUcounter++;
         if (CustomEncoding (buf[rand () % EN_ALPH_SIZE], EN_ALPH_SIZE) !=
-	       0)
-	 ENcounter++;
+               0)
+         ENcounter++;
      }
    if (RUcounter <= ENcounter)
     return RU_ALPH_SIZE;

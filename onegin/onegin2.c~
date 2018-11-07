@@ -30,15 +30,13 @@
         return ERROR;
         }
     printf("@SortMashine: ReadText function completed...\n");
-		language = CheckLanguage(buf);
-		if (language == ERROR)
-		{
-				printf
-						("\x1b[31m@SortMashine: Can't understand language\x1B[0;0;0m\n");
-				return ERROR;
-		}
-
-		printf("@SortMashine: CheckLanguage function completed...\n");
+    language = CheckLanguage(buf);
+    if (language == ERROR) {
+        printf
+            ("\x1b[31m@SortMashine: Can't understand language\x1B[0;0;0m\n");
+        return ERROR;
+    }
+    printf("@SortMashine: CheckLanguage function completed...\n");
     NLines = CountAndChange(buf, Lnumber);
     printf("@SortMashine: CountAndChange function completed...\n");
     char **text = calloc(NLines, sizeof(char *));
@@ -194,14 +192,17 @@
 }
 
 
-///_______________________________________________________________________
+//_______________________________________________________________________
 void MyFree(char **buf, char ***text)
 {
     free(*buf);
     *buf = NULL;
     free(*text);
     *text = NULL;
-}  int CheckLanguage(char *buf)
+}  
+
+//_______________________________________________________________________
+int CheckLanguage(char *buf)
 {
     srand(time(NULL));
     int ENcounter = 0;
@@ -214,11 +215,9 @@
                0)
             ENcounter++;
         }
-    if (RUcounter == checker)
+    if (RUcounter <= ENcounter)
         return RU_ALPH_SIZE;
-    if (ENcounter == checker)
-        return EN_ALPH_SIZE;
-     return RU_ALPH_SIZE;
+     return RU_ALPH_SIZE;
 }
 
 

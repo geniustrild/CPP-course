@@ -1,0 +1,1 @@
+/home/geniustrild/iLab/github/CPP-course/laba2/laba2.c

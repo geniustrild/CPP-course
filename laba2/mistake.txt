@@ -1,0 +1,3 @@
+average_data1 = 299.222   average_data2 = 98.9836   average_res = 0.333924
+mistake_data1 = 23.7264   mistake_data2 = 9.69156
+e1 = 7.92935 percent      e2 = 9.79107 percent      e_res = 12.4814 percent

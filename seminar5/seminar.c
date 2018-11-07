@@ -1,3 +1,28 @@
+
+
+
+
+
+
+int xlt = 0, ylt = 0, xrb = 0, yrb = 0;
+scanf ("%d %d %d %d", &xlt, &ylt, &xrb, &yrb);
+int temp = 0, buf = 0;
+printf ("%d %d %d %d\n", xlt, ylt, xrb, yrb);
+temp = xlt;
+buf = ylt;
+int hight = 0;
+hight = abs (ylt) + abs (yrb);
+int length = 0;
+length = abs (xlt) + abs (xrb);
+xlt = xlt - length;
+ylt = ylt + hight;
+xrb = temp;
+yrb = buf;
+printf ("%d %d %d %d\n", xlt, ylt, xrb, yrb);
+return 0;
+
+
+
 считать весь буфер в массив
 sys\stat.h
   stat заполняет сведениями о файле

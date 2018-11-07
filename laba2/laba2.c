@@ -209,7 +209,6 @@ int CalculateError(double I[],double U[],double R[],double r[],int line, double 
 }
 	/*_______________________________________________________________________________________________________________________________*/
 
-
 int WriteData(double I[],double U[],double R[],double r[],int line, double sigma[],char ResultFileName[])
 {
 	FILE* result = fopen(ResultFileName, "w"); 			/*Whriting results to result.txt*/
@@ -250,7 +249,7 @@ int Check_array(double arr[])
 	if ( arr[0]==CheckSum && arr[NPoints]==CheckSum) return 0;
 	else return error;
 }
-
+/*_______________________________________________________________________________________________________________________________*/
 int CheckTolerance(double value)
 {
 	if (value > MinValue - Tolerance && value < MaxValue - Tolerance)

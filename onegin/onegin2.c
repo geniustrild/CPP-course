@@ -30,8 +30,13 @@ int main()
 		}
 	FillText(text, buf, Lnumber, NLines);
 	printf("@SortMashine: FillText function completed...\n");
-	qsort(text, NLines, sizeof(char*), CompareStrings);
+	PrintText(text, ResultFileName, NLines);
+	mysort(text, NLines, sizeof(char*), CompareStrings);
 	printf("@SortMashine: Sorting function completed...\n");
+	Reverse (text, NLines);
+	mysort(text, NLines, sizeof(char*), CompareStrings);
+	Reverse (text, NLines);
+	PrintText(text, ResultFileName, NLines);
 	PrintText(text, ResultFileName, NLines);
 	printf("@SortMashine: PrintText function completed...\n");
 	printf ("\x1b[32m@SortMashine: Text sorting completed! %d lines sorted!\n", NLines);

@@ -1,0 +1,75 @@
+In file included from /home/geniustrild/iLab/github/CPP-course/onegin/onegin2.c:26:0:
+/home/geniustrild/iLab/github/CPP-course/onegin/function.c: In function ‘Myqsort’:
+/home/geniustrild/iLab/github/CPP-course/onegin/function.c:2:1: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘int’
+ int CalculateSize (FILE* read)
+ ^~~
+/home/geniustrild/iLab/github/CPP-course/onegin/function.c:13:1: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+ {
+ ^
+/home/geniustrild/iLab/github/CPP-course/onegin/function.c:30:1: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+ {
+ ^
+/home/geniustrild/iLab/github/CPP-course/onegin/function.c:46:1: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+ {
+ ^
+/home/geniustrild/iLab/github/CPP-course/onegin/function.c:63:1: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+ {
+ ^
+In file included from /home/geniustrild/iLab/github/CPP-course/onegin/onegin2.c:26:0:
+/home/geniustrild/iLab/github/CPP-course/onegin/function.c:85:1: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+ {
+ ^
+/home/geniustrild/iLab/github/CPP-course/onegin/function.c:103:1: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+ {
+ ^
+/home/geniustrild/iLab/github/CPP-course/onegin/function.c:123:1: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+ {
+ ^
+/home/geniustrild/iLab/github/CPP-course/onegin/function.c:131:2: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+  {
+  ^
+/home/geniustrild/iLab/github/CPP-course/onegin/function.c:150:1: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+ {
+ ^
+/home/geniustrild/iLab/github/CPP-course/onegin/function.c:162:1: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+ {
+ ^
+/home/geniustrild/iLab/github/CPP-course/onegin/onegin2.c:31:1: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+ {
+ ^
+/home/geniustrild/iLab/github/CPP-course/onegin/onegin2.c:78:1: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+ {
+ ^
+/home/geniustrild/iLab/github/CPP-course/onegin/onegin2.c:88:1: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+ {
+ ^
+/home/geniustrild/iLab/github/CPP-course/onegin/onegin2.c:105:1: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+ {
+ ^
+/home/geniustrild/iLab/github/CPP-course/onegin/onegin2.c:121:1: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+ {
+ ^
+/home/geniustrild/iLab/github/CPP-course/onegin/onegin2.c:138:1: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+ {
+ ^
+/home/geniustrild/iLab/github/CPP-course/onegin/onegin2.c:160:1: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+ {
+ ^
+/home/geniustrild/iLab/github/CPP-course/onegin/onegin2.c:178:1: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+ {
+ ^
+/home/geniustrild/iLab/github/CPP-course/onegin/onegin2.c:198:1: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+ {
+ ^
+/home/geniustrild/iLab/github/CPP-course/onegin/onegin2.c:206:2: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+  {
+  ^
+/home/geniustrild/iLab/github/CPP-course/onegin/onegin2.c:225:1: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+ {
+ ^
+/home/geniustrild/iLab/github/CPP-course/onegin/onegin2.c:237:1: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+ {
+ ^
+/home/geniustrild/iLab/github/CPP-course/onegin/onegin2.c:241:1: error: expected ‘{’ at end of input
+ }
+ ^

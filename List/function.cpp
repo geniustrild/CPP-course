@@ -4,8 +4,8 @@ int OK_Node(Node* ptr)
     {
         return PTR_ERROR;
     }
-    #ifndef FAST_LIST
-    if ( ptr -> checksum != ( ((unsigned long long int) (ptr -> next) + (unsigned long long int)(ptr -> prev ) )% 12978 ))
+  #ifndef FAST_LIST
+    if ( ptr -> checksum != ( ((unsigned long long int) (ptr -> next) + (unsigned long long int)(ptr -> prev ) )% CHECKSUM_NUMBER ))
     {
         return CHECKSUM_ERROR;
     }
@@ -18,7 +18,7 @@ int OK_Node(Node* ptr)
     {
         return CAN_END_ERROR;
     }
-    #endif
+  #endif
 return OKK;
 }
 
@@ -27,11 +27,11 @@ void checksum(Node* ptr)
 {
     if (ptr == NULL)
     {
-        printf("NULL ptr checksum ");
+        printf("NULL ptr checksum\n");
        return;
     }
 
-    ptr -> checksum = ( ((unsigned long long int) (ptr -> next) + (unsigned long long int)(ptr -> prev ) )% 12978 );
+    ptr -> checksum = ( ((unsigned long long int) (ptr -> next) + (unsigned long long int)(ptr -> prev ) )% CHECKSUM_NUMBER );
 }
 #endif
 Node* Create_Node (int value)
@@ -41,26 +41,26 @@ Node* Create_Node (int value)
     list_ptr -> next = NULL;
     list_ptr -> prev = NULL;
     list_ptr -> data = value;
-    #ifndef FAST_LIST
+  #ifndef FAST_LIST
     list_ptr -> CAN_BEGIN = CAN_BEGIN;
     list_ptr -> CAN_END = CAN_END;
 
     checksum(list_ptr);
-    #endif
+  #endif
     if (OK_Node(list_ptr) < 0)
     {
-      printf ("ERROR in Create_Node");
+      printf ("ERROR in Create_Node\n");
       return NULL;
     }
 
 return list_ptr;
 }
 
-Node* Insert_Node(Node* cur, int value)
+Node* Insert_after_Node(Node* cur, int value)
 {
     if (OK_Node(cur) < 0)
     {
-        printf ("Error in Insert_Node");
+        printf ("Error in Insert_after_Node\n");
         return NULL;
     }
     Node* new_n = new Node;
@@ -69,11 +69,11 @@ Node* Insert_Node(Node* cur, int value)
     new_n -> next = cur -> next;
     new_n -> prev = cur;
     cur   -> next = new_n;
-    #ifndef FAST_LIST
+  #ifndef FAST_LIST
     new_n -> CAN_BEGIN = CAN_BEGIN;
     new_n -> CAN_END = CAN_END;
     checksum(new_n);
-    #endif
+  #endif
     if (OK_Node(new_n) < 0)
     {
         printf ("ERROR in Insert_Node\n");
@@ -83,10 +83,50 @@ Node* Insert_Node(Node* cur, int value)
         return new_n;
 
     (new_n -> next) -> prev = new_n;
-    #ifndef FAST_LIST
+  #ifndef FAST_LIST
     new_n  -> CAN_BEGIN = CAN_BEGIN;
     new_n  -> CAN_END = CAN_END;
-    #endif
+  #endif
+    if (OK_Node(new_n) < 0)
+    {
+        printf ("ERROR in Insert_Node\n");
+        return NULL;
+    }
+
+return new_n;
+}
+
+Node* Insert_before_Node(Node* cur, int value)
+{
+    if (OK_Node(cur) < 0)
+    {
+        printf ("Error in Insert_before_Node\n");
+        return NULL;
+    }
+    Node* new_n = new Node;
+
+    new_n -> data = value;
+    new_n -> prev = cur -> prev;
+    new_n -> next = cur;
+    cur -> prev -> next = new_n;
+  #ifndef FAST_LIST
+    new_n -> CAN_BEGIN = CAN_BEGIN;
+    new_n -> CAN_END = CAN_END;
+    checksum(new_n);
+  #endif
+    if (OK_Node(new_n) < 0)
+    {
+        printf ("ERROR in Insert_Node\n");
+        return NULL;
+    }
+    if (new_n -> next == NULL)
+        return new_n;
+
+    (new_n -> next) -> prev = new_n;
+  #ifndef FAST_LIST
+    new_n  -> CAN_BEGIN = CAN_BEGIN;
+    new_n  -> CAN_END = CAN_END;
+  #endif
     if (OK_Node(new_n) < 0)
     {
         printf ("ERROR in Insert_Node\n");
@@ -98,9 +138,9 @@ return new_n;
 
 Node* Search_Node (Node* list_ptr, int value)
 {
-    #ifndef FAST_LIST
+  #ifndef FAST_LIST
     checksum(list_ptr);
-    #endif
+  #endif
     if (OK_Node(list_ptr) < 0)
     {
         printf ("ERROR in Search_Node\n");
@@ -137,7 +177,7 @@ int Index_Node (Node* cur, Node* list_ptr)
     if (cur == NULL)
         return -1;
     Node* tmp = cur;
-    int counter = 2;
+    int counter = 1;
 
     while (cur -> prev != NULL)
     {
@@ -146,7 +186,7 @@ int Index_Node (Node* cur, Node* list_ptr)
     }
     if (counter == 1)
         printf("Sorry!There is no such element\n");
-return counter+1;
+return counter;
 }
 
 void Print_Node (Node* list_ptr)
@@ -154,20 +194,19 @@ void Print_Node (Node* list_ptr)
     printf("Current List: ");
     if (list_ptr == NULL)
     {
-        printf ("Error in Print_Node/The list is empty");
+        printf ("Error in Print_Node/The list is empty\n");
         return;
     }
-    Node* p = list_ptr;
-
-    printf("%d ", p -> data);
-    p = p -> next;
-    while (p != NULL)
+    Node* cur = list_ptr;
+    //
+    // printf("%d ", cur -> data);
+    // cur = cur -> next;
+    while (cur != NULL)
     {
-        printf("%d ", p -> data);
-        p = p -> next;
+        printf("%d ", cur -> data);
+        cur = cur -> next;
     }
-    free(p);
-    p = NULL;
+    cur = NULL;
     printf("\n");
 }
 
@@ -199,7 +238,7 @@ void Delete_Node(Node* cur)
 {
     if (OK_Node(cur) < 0)
     {
-        printf ("Error in Delete_Node");
+        printf ("Error in Delete_Node\n");
         return;
     }
 
@@ -207,30 +246,27 @@ void Delete_Node(Node* cur)
     {
         if (cur -> next == NULL)
         {
-            free (cur);
+            delete cur;
             cur = NULL;
             return ;
         }
+      cur -> next -> prev = NULL;
+      delete cur;
+      cur = NULL;
+      return;
     }
 
-    if (cur -> prev == NULL)
-    {
-        (cur -> next) -> prev = NULL;
-        free (cur);
-        cur = NULL;
-        return;
-    }
     if (cur -> next == NULL)
     {
-        (cur -> prev) -> next = NULL;
-        free (cur);
+        cur -> prev -> next = NULL;
+        delete cur;
         cur = NULL;
         return;
     }
-    (cur -> prev) -> next = (cur -> next);
-    (cur -> next) -> prev = (cur -> prev);
+    cur -> prev -> next = cur -> next;
+    cur -> next -> prev = cur -> prev;
 
-    free (cur);
+    delete cur;
     cur = NULL;
 }
 
@@ -239,7 +275,7 @@ void  Delete_List (Node* list_ptr)
 {
     if (list_ptr == NULL)
     {
-        printf ("Error in Delete_List/The list is empty");
+        printf ("Error in Delete_List/The list is empty\n");
         return;
     }
     Node* tmp = list_ptr;
@@ -247,7 +283,6 @@ void  Delete_List (Node* list_ptr)
     {
         tmp = list_ptr;
         list_ptr = list_ptr -> next;
-        free(tmp);
         tmp -> next = NULL;
         tmp = NULL;
     }
@@ -259,7 +294,7 @@ Node* Index_ptr_Node (Node* list_ptr, int index)
 {
     if (OK_Node(list_ptr) < 0)
     {
-        printf ("Error in Index_ptr_Node");
+        printf ("Error in Index_ptr_Node\n");
         return NULL;
     }
     for(int i = 0; i < index; i++)
@@ -274,4 +309,18 @@ Node* Index_ptr_Node (Node* list_ptr, int index)
     checksum(list_ptr);
     #endif
 return list_ptr;
+}
+
+void menu()
+{
+  printf("\n\n");
+  printf("1 - Create new Node\n");
+  printf("2 - Insert Node after current\n");
+  printf("3 - Insert Node before current\n");
+  printf("4 - Index current Node\n");
+  printf("5 - Search Node\n");
+  //printf("6 - Swap Node\n");
+  printf("6 - Delete current Node\n");
+  printf("7 - Print list\n");
+  printf("99 - Clear list end exit\n");
 }

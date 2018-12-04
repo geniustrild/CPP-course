@@ -2,72 +2,90 @@
 
 int main()
 {
-  int number = 0, head = 0;
-  printf("Number of nodes ");
-  scanf("%d", &number);
-  if (number <= 0)
-      {
-          printf("invalid input");
-          return -1;
-      }
-
-  printf("Node 1 data: ");
-  if (scanf("%d", &head) != 1)
-      {
-          printf("invalid input");
-          return -1;
-      }
-
-  Node* list_ptr = Create_Node (head);
+  int input = 0;
+  int data = 0;
+  Node* list_ptr = NULL;
   Node* cur = list_ptr;
-  for (int i = 1; i < number; i++)
-  {
-      int num = 0;
-      printf("Node %d data: ", i+1);
-      if (scanf("%d", &num) != 1)
+  int i1 = 0, i2 = 0, index = 0;;
+  Node* ptr1 = Index_ptr_Node(list_ptr, i1);
+  Node* ptr2 = Index_ptr_Node(list_ptr, i2);
+
+  while (input != 99)
+    {
+      menu();
+      scanf("%d", &input);
+      switch ( input )
       {
-          printf("invalid input");
-          return -1;
+        case 1:
+            printf("\nInput Node data (int)\n");
+            if (scanf("%d", &data) != 1)
+              {
+                  printf("invalid input");
+                  return -1;
+              }
+            list_ptr = Create_Node (data);
+            cur = list_ptr;
+            Print_Node (list_ptr);
+            break;
+        case 2:
+            printf("\nInput Node data (int)\n");
+            if (scanf("%d", &data) != 1)
+              {
+                printf("invalid input");
+                return -1;
+              }
+            cur = Insert_after_Node(cur, data);
+            Print_Node (list_ptr);
+            break;
+        case 3:
+            printf("\nInput Node data (int)\n");
+            if (scanf("%d", &data) != 1)
+              {
+                printf("invalid input");
+                return -1;
+              }
+            cur = Insert_before_Node(cur, data);
+            Print_Node (list_ptr);
+            break;
+          case 4:
+            index = Index_Node (cur, list_ptr);
+            if (index > 0)
+                printf("index = %d\n", index);
+            Print_Node (list_ptr);
+            break;
+        case 5:
+
+            printf("\nSearch ");
+            if (scanf("%d", &data) != 1)
+              {
+                  printf("invalid input");
+                  return -1;
+              }
+            cur = Search_Node (list_ptr, data);
+            if (cur == NULL) break;
+            printf("%d\n",cur -> data);
+            Print_Node (list_ptr);
+            break;
+        // case 6:
+        //     printf("enter two index\n");
+        //     scanf("%d %d", &i1, &i2);
+        //     ptr1 = Index_ptr_Node(list_ptr, i1);
+        //     ptr2 = Index_ptr_Node(list_ptr, i2);
+        //     Swap_Node (ptr1, ptr2);
+        //     Print_Node (list_ptr);
+        //     break;
+        case 6:
+            Delete_Node (cur);
+            Print_Node (list_ptr);
+            break;
+        case 7:
+            Print_Node (list_ptr);
+            break;
+        default:
+            printf("!!!!!!!!!!!!!!!!!!\n");
+            break;
       }
-      cur = Insert_Node(cur, num);
-  }
-
-  Print_Node (list_ptr);
-
-
-  int value = 0;
-  printf("Search ");
-  if (scanf("%d", &value) != 1)
-  {
-      printf("invalid input");
-      return -1;
-  }
-  Node* searches = Search_Node (list_ptr, value);
-
-  cur = searches;
-  int index = Index_Node (cur, list_ptr);
-  if (index > 0)
-      printf("index = %d\n", index-1);
-
-  printf("enter two indexes\n");
-  int ind1 = 0, ind2 = 0;
-  scanf("%d %d", &ind1, &ind2);
-  Node* pr1 = Index_ptr_Node(list_ptr, ind1);
-  Node* pr2 = Index_ptr_Node(list_ptr, ind2);
-  Swap_Node (pr1, pr2);
-
-  printf("enter the index for the node to be removed\n");
-  int indel;
-  scanf("%d", &indel);
-  cur = Index_ptr_Node(list_ptr, indel);
-  if (cur == list_ptr)
-      list_ptr = cur -> next;
-  Delete_Node (cur);
-
-  printf("\nlist: ");
-  Print_Node (list_ptr);
-
+    }
   Delete_List(list_ptr);
-
   return 0;
 }

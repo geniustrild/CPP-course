@@ -9,7 +9,7 @@
 
 const int CAN_BEGIN = 8022001;
 const int CAN_END = 1002208;
-const int CHECKSUM_NUMBER = 1002208;
+const int CHECKSUM_NUMBER = 12041975;
 const int OKK = 1;
 const int PTR_ERROR = -2018;
 const int CHECKSUM_ERROR   = -2019;
@@ -32,7 +32,8 @@ struct Node
 };
 
 Node* Create_Node (int value);
-Node* Insert_Node (Node* cur, int value);
+Node* Insert_before_Node(Node* cur, int value);
+Node* Insert_after_Node(Node* cur, int value);
 Node* Search_Node (Node* cur, int value);
 Node* Index_ptr_Node (Node* list_ptr, int index);
 int   Index_Node (Node* cur, Node* list_ptr);
@@ -42,6 +43,7 @@ void  Swap_Node (Node* ptr1, Node* ptr2);
 void  checksum (Node* ptr);
 void  Print_Node (Node* list_ptr);
 void  Delete_List (Node* list_ptr);
+void  menu();
 
 #include "function.cpp"
 
